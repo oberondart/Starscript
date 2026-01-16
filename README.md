@@ -1,0 +1,2 @@
+# starscript-
+minimalistic scripting language
