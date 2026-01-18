@@ -4,16 +4,21 @@ let arraystorage = new Array;
 function print(value) {
     if (value == ret()) {
         console.log(ret(value));
+        return;
     } else if (varstorage[value]) {
         console.log(varstorage[value]);
+        return;
     } else if (arraystorage[value]) {
         console.log(arraystorage[value]);
+        return;
+    } else if (value == len()) {
+        console.log(len(value));
+        return;
     } else {
         console.log(value);
+        return;
     }
-    if (value == len()) {
-        console.log(len(value));
-    }
+
 }
 
 function variable(variable, value) {
@@ -29,8 +34,22 @@ function ret(name) {
 }
 
 function len(name) {
-    if (name && name.length !== undefined) {
-        return name.length;
+    if (name && name.length !== undefined && varstorage[name] == false) {
+        console.log(name.length);
+    } else if (varstorage[name]) {
+        console.log(varstorage[name].length)
+        return;
+    } else {
+        console.log(name)
     }
-    return 0;
+}
+
+function condition(input) {
+    if (varstorage[input] || arraystorage[input] || input == true) {
+        print("true")
+        return
+    } else {
+        print("false")
+        return
+    }
 }
